@@ -32,6 +32,7 @@
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   [hidden] { display: none !important; }
+  [hidden] { display: none !important; }
   html, body {
     margin: 0; height: 100%; background: var(--bg); color: var(--text);
     font-family: var(--font-body);
@@ -673,7 +674,7 @@
     }
     updateBest();
   }
-  function updateBest() { $('best').textContent = fmt(Math.max(bestFor(diff), state === 'over' ? 0 : 0)); }
+  function updateBest() { $('best').textContent = fmt(Math.max(bestFor(diff), state === 'playing' || state === 'paused' ? score : 0)); }
 
   function showOverlay(title, text, strong, buttons) {
     $('ovTitle').textContent = title;
